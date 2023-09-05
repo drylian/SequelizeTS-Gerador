@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ES2017",
+      "module": "NodeNext",
+      "lib": ["ESNext"],
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "outDir": "dist",
+      "baseUrl": "app",
+    },
+    "include": ["app", "index.ts",],
+    "exclude": ["node_modules", "**/*.spec.ts", "dist"]
+  }
