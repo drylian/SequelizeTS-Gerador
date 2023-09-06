@@ -6,7 +6,7 @@ import { ModelMaker } from './gerators/MakeModels';
 import { MakeConnect } from './gerators/MakeConnect';
 import { MakeParams } from './gerators/MakeParams'
 import { MakeIndex } from './gerators/MakeIndex'
-import { ModelConfig,ModelContent } from './interfaces'
+import { ModelConfig, ModelContent } from './interfaces'
 /**
  * Le a model.config.json
  */
@@ -16,6 +16,7 @@ if (fs.existsSync("models.config.json")) {
     ModelConfig = json("models.config.json")
 } else {
     console.log("Crie uma model.config.json antes de iniciar o gerator ")
+    process.exit(1)
 }
 
 /**
@@ -23,7 +24,7 @@ if (fs.existsSync("models.config.json")) {
  */
 function ModelsJsonPath(directoryPath: string): string[] {
     const files = fs.readdirSync(directoryPath);
-    return files.filter((file) => file.endsWith('.json'));
+    return files.filter((file: string) => file.endsWith('.json'));
 }
 
 /**
