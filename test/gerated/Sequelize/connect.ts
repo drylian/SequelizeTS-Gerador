@@ -1,8 +1,4 @@
-import * as fs from 'fs';
-import * as path from "path";
 
-export function MakeConnect(Basedir: string) {
-    let code = `
 /**
  * @module sequelize
  * @description Este módulo configura e exporta uma instância do Sequelize, que é um ORM (Object-Relational Mapping) para interagir com bancos de dados relacionais.
@@ -38,7 +34,4 @@ const sequelize = new Sequelize(sequelizeMG);
  * [Connect gerado pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
  */
 export default sequelize;
-      `
-    fs.writeFileSync(`${path.join(Basedir, "Sequelize", "connect.ts")}`, code);
-
-}
+      

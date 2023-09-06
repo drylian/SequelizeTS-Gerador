@@ -1,0 +1,31 @@
+{
+    "model": "Product",
+    "fields": [
+      {
+        "name": "id",
+        "type": "number",
+        "primaryKey": true,
+        "autoIncrement": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "price",
+        "type": "number",
+        "allowNull": false
+      },
+      {
+        "name": "stock",
+        "type": "number",
+        "defaultValue": "0"
+      }
+    ]
+  }
+  

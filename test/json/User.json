@@ -1,0 +1,43 @@
+{
+    "model": "User",
+    "fields": [
+      {
+        "name": "id",
+        "type": "number",
+        "primaryKey": true,
+        "autoIncrement": true,
+        "comment":"Olá"
+      },
+      {
+        "name": "username",
+        "type": "string | null",
+        "allowNull": false,
+        "comment":"Olá"
+      },
+      {
+        "name": "email",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "password",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "permissions",
+        "type": "string",
+        "defaultValue": "1"
+      },
+      {
+        "name": "uuid",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "remember",
+        "type": "string"
+      }
+    ]
+  }
+  

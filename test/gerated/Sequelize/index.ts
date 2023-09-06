@@ -1,32 +1,37 @@
-import * as fs from 'fs';
-import * as path from "path";
-import { ModelContent } from '../interfaces';
 
-/**
- * @function MakeIndex
- * @description Gera um arquivo de índice que importa automaticamente todos os modelos gerados e exporta esses modelos e uma função de inicialização.
- * @param {ModelContent[]} ModelFiles - Um array de objetos ModelContent que contêm informações sobre os modelos gerados.
- * @param {string} BaseDir - O diretório base onde o arquivo de índice será gerado.
- */
-export function MakeIndex(ModelFiles: ModelContent[], BaseDir: string) {
-  /**
-   * @constant code
-   * @description Código TypeScript gerado que importa modelos e exporta-os, juntamente com a função de inicialização.
-   */
-  let code = `
 import sequelize from "./connect";
 
-${ModelFiles.map((Model: ModelContent) => `import ${Model.model}, { ${Model.model}I, ${Model.model}Type } from './models/${Model.model}';`).join('\n')}
+import Product, { ProductI, ProductType } from './models/Product';
+import Task, { TaskI, TaskType } from './models/Task';
+import User, { UserI, UserType } from './models/User';
 
-${ModelFiles.map((Model: ModelContent) => `
+
 /**
- * @exports ${Model.model} - O modelo ${Model.model}.
- * @exports ${Model.model}I - A interface ${Model.model}I.
- * @exports ${Model.model}Type - O type do ${Model.model}Type.
+ * @exports Product - O modelo Product.
+ * @exports ProductI - A interface ProductI.
+ * @exports ProductType - O type do ProductType.
  * 
  * [Index gerada pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
  */
-export { ${Model.model}, ${Model.model}I, ${Model.model}Type };`).join('\n')}
+export { Product, ProductI, ProductType };
+
+/**
+ * @exports Task - O modelo Task.
+ * @exports TaskI - A interface TaskI.
+ * @exports TaskType - O type do TaskType.
+ * 
+ * [Index gerada pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
+ */
+export { Task, TaskI, TaskType };
+
+/**
+ * @exports User - O modelo User.
+ * @exports UserI - A interface UserI.
+ * @exports UserType - O type do UserType.
+ * 
+ * [Index gerada pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
+ */
+export { User, UserI, UserType };
 
 /**
  * @function init
@@ -44,14 +49,30 @@ async function init() {
    */
   await sequelize.authenticate();
 
-  ${ModelFiles.map((Model: ModelContent) => `/**
+  /**
    * @function sync
-   * @memberof ${Model.model}
-   * @description Sincroniza o modelo ${Model.model} com a base de dados.
+   * @memberof Product
+   * @description Sincroniza o modelo Product com a base de dados.
    * 
    * [Index gerados pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
    */
-  await ${Model.model}.sync()`).join('\n')}
+  await Product.sync()
+/**
+   * @function sync
+   * @memberof Task
+   * @description Sincroniza o modelo Task com a base de dados.
+   * 
+   * [Index gerados pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
+   */
+  await Task.sync()
+/**
+   * @function sync
+   * @memberof User
+   * @description Sincroniza o modelo User com a base de dados.
+   * 
+   * [Index gerados pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
+   */
+  await User.sync()
 }
 
 /**
@@ -83,7 +104,4 @@ const db: Database = {
  * [Index gerados pelo sequelize-TS-Gerator](https://github.com/drylian/SequelizeTS-Gerador).
  */
 export { db };
-  `;
-
-  fs.writeFileSync(`${path.join(BaseDir, "Sequelize", "index.ts")}`, code);
-}
+  

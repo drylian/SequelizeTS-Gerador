@@ -1,18 +1,4 @@
-/**
- * @module MakeParams
- * @description Este módulo gera um arquivo de parâmetros do Sequelize para configuração de conexão com bancos de dados.
- * @param {string} Basedir - O diretório base onde o arquivo de parâmetros será gerado.
- */
-import * as fs from 'fs';
-import * as path from "path";
 
-/**
- * @function MakeParams
- * @description Gera um arquivo de parâmetros do Sequelize com opções de conexão para diferentes bancos de dados.
- * @param {string} Basedir - O diretório base onde o arquivo de parâmetros será gerado.
- */
-export function MakeParams(Basedir: string) {
-  let code = `
 import { Options } from "sequelize";
 interface sequelizeParams {
   [key: string]: Options
@@ -81,7 +67,3 @@ export const params: sequelizeParams = {
     database: 'seu_banco_de_dados_mysql',
   },
 };
-`
-  fs.writeFileSync(`${path.join(Basedir, "Sequelize", "params.ts")}`, code);
-
-}

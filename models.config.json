@@ -1,0 +1,4 @@
+{
+    "ModelsJsonDir": "./test/json",
+    "BaseDir":"./test/gerated"
+}

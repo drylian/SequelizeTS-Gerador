@@ -1,0 +1,30 @@
+{
+    "model": "Task",
+    "fields": [
+      {
+        "name": "id",
+        "type": "number",
+        "primaryKey": true,
+        "autoIncrement": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "allowNull": false
+      },
+      {
+        "name": "description",
+        "type": "string"
+      },
+      {
+        "name": "dueDate",
+        "type": "string"
+      },
+      {
+        "name": "completed",
+        "type": "boolean",
+        "defaultValue": "false"
+      }
+    ]
+  }
+  

@@ -9,6 +9,9 @@
       "skipLibCheck": true,
       "outDir": "dist",
       "baseUrl": "app",
+      "paths": {
+        "@":["./app/*"]
+      }
     },
     "include": ["app", "index.ts",],
     "exclude": ["node_modules", "**/*.spec.ts", "dist"]
