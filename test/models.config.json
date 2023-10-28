@@ -1,4 +1,4 @@
 {
     "ModelsJsonDir": "./test/json",
-    "BaseDir":"./test/tested"
+    "BaseDir":"./test/gerated"
 }

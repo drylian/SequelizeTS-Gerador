@@ -6,7 +6,7 @@ import Task, { TaskI, TaskType } from './models/Task';
 import User, { UserI, UserType } from './models/User';
 
 
-/**
+/** a
  * @exports Product - O modelo Product.
  * @exports ProductI - A interface ProductI.
  * @exports ProductType - O type do ProductType.
